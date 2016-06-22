@@ -170,6 +170,9 @@ new CopyWebpackPlugin(
 ---
 ---
 
-[参考链接1](http://www.slideshare.net/trueter/how-to-make-your-webpack-builds-10x-faster)
-## 12、水饺
+## 参考链接
+1. [http://www.slideshare.net/trueter/how-to-make-your-webpack-builds-10x-faster](http://www.slideshare.net/trueter/how-to-make-your-webpack-builds-10x-faster)  
+2. [https://github.com/erikras/react-redux-universal-hot-example/issues/616](https://github.com/erikras/react-redux-universal-hot-example/issues/616)
+
+## 水饺
 ![水饺](https://pic1.zhimg.com/e2d5be25d126edf5e036b16cd5440c70_b.jpg)
