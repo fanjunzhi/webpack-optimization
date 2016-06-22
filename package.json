@@ -1,0 +1,24 @@
+{
+  "name": "webpack-optimization",
+  "version": "1.0.0",
+  "description": "webpack optimization",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fanjunzhi/webpack-optimization.git"
+  },
+  "keywords": [
+    "webpack",
+    "optimization，",
+    "webpack优化"
+  ],
+  "author": "fanjunzhi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fanjunzhi/webpack-optimization/issues"
+  },
+  "homepage": "https://github.com/fanjunzhi/webpack-optimization#readme"
+}
