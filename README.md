@@ -4,7 +4,7 @@
 ![开篇](https://pic4.zhimg.com/0fc7bd004140b1707e7226f22b4bc0bb_b.jpg)
 ![开篇](https://pic1.zhimg.com/4cefc77e2e9e82f1f225d2e96aaa707c_b.jpg) 
  
-什么按需加载什么的就不提了，需要知道按需加载不是适合于所有的场景。
+什么按需加载、提取出common什么的就不提了，需要知道按需加载不是适合于所有的场景。
 
 ## 1、别名alia
 ```
