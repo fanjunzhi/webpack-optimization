@@ -163,6 +163,9 @@ new CopyWebpackPlugin(
 ## 11、设置dll([相关链接](http://engineering.invisionapp.com/post/optimizing-webpack/))
 必须要配置json文件，对开发中依赖模块变化比较大的慎用。  
 
+## 12.设置react-optimize ([相关链接](https://github.com/thejameskyle/babel-react-optimize))
+A Babel preset and plugins for optimizing React code.
+
 ---  
 ---
 ---
