@@ -161,9 +161,29 @@ new CopyWebpackPlugin(
 ),
 ```
 ## 11、设置dll([相关链接](http://engineering.invisionapp.com/post/optimizing-webpack/))
-必须要配置json文件，对开发中依赖模块变化比较大的慎用。  
+原理就是将特定的模块在项目构建前构建好，然后通过页面引入。
 
-## 12、设置react-optimize (针对React [相关链接](https://github.com/thejameskyle/babel-react-optimize))
+## 12、使用happypack([相关链接](https://github.com/amireh/happypack)])  
+让loader多进程去处理文件。  
+
+```
+var HappyPack = require('happypack');
+
+loader:
+	test: /\.js$/,
+	exclude: /node_modules/,
+	loader: 'babel',
+	query: babelQuery,
+	happy:   { id: 'babelJs' }
+plugins:
+	new HappyPack({
+		id: 'babelJs' ,
+		threads: 4
+	}),
+	
+```
+
+## 13、设置react-optimize (针对React [相关链接](https://github.com/thejameskyle/babel-react-optimize))
 A Babel preset and plugins for optimizing React code.
 
 ---  
