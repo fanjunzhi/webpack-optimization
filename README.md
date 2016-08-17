@@ -163,7 +163,7 @@ new CopyWebpackPlugin(
 ## 11、设置dll([相关链接](http://engineering.invisionapp.com/post/optimizing-webpack/))
 原理就是将特定的模块在项目构建前构建好，然后通过页面引入。
 
-## 12、使用happypack([相关链接](https://github.com/amireh/happypack)])  
+## 12、使用happypack([相关链接](https://github.com/amireh/happypack))  
 让loader多进程去处理文件。  
 
 ```
