@@ -170,7 +170,8 @@ A Babel preset and plugins for optimizing React code.
   },
 }
 ```
-## 15自动处理不兼容的css前缀[postcss](https://github.com/postcss/postcss-loader)
+## 15、自动处理不兼容的css前缀[postcss](https://github.com/postcss/postcss-loader)
+## 16、devtool的选择[webpack devtool](https://webpack.github.io/docs/configuration.html#devtool)
 ---
 
 ## 参考链接
