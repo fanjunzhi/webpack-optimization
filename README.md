@@ -172,6 +172,27 @@ A Babel preset and plugins for optimizing React code.
 ```
 ## 15、自动处理不兼容的css前缀[postcss](https://github.com/postcss/postcss-loader)
 ## 16、devtool的选择[webpack devtool](https://webpack.github.io/docs/configuration.html#devtool)
+## 17、区分开发环境、测试环境和生产环境
+```
+开发环境不做任何处理
+测试环境(移除console)
+let stripStr = '?strip[]=thisjustaplacehoderfunction';
+
+if (process.env.NODE_ENV === 'test') {
+    stripStr = '?strip[]=console.log';
+    webpackConfig.module.loaders.push({
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'strip-loader' + stripStr,
+    });
+    webpackConfig.module.loaders.push({
+        test: /\.jsx$/,
+        exclude: /node_modules/,
+        loader: 'strip-loader' + stripStr,
+    });
+}
+;
+```
 ---
 
 ## 参考链接
