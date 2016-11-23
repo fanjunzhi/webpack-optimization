@@ -183,15 +183,34 @@ if (process.env.NODE_ENV === 'test') {
     webpackConfig.module.loaders.push({
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'strip-loader' + stripStr,
+        loader: `strip-loader${stripStr}`,
     });
     webpackConfig.module.loaders.push({
         test: /\.jsx$/,
         exclude: /node_modules/,
-        loader: 'strip-loader' + stripStr,
+        loader: `strip-loader${stripStr}`,
     });
 }
-;
+
+生产环境(移除console并压缩混淆)
+if (process.env.NODE_ENV === 'production') {
+    webpackConfig.plugins.push(
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: true,
+                drop_console: true,
+                pure_funcs: ['console.log'],
+            },
+            mangle: {
+                except: ['$super', '$', 'exports', 'require'],
+            },
+            output: {
+                comments: false,
+            },
+            sourceMap: false,
+        })
+    );
+}
 ```
 ---
 
