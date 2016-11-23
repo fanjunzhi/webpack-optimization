@@ -1,7 +1,6 @@
 # webpack优化之路
 开发了几个月的webpack构建的项目，总要留(流)下点什么
 
-![开篇](https://pic4.zhimg.com/0fc7bd004140b1707e7226f22b4bc0bb_b.jpg)
 ![开篇](https://pic1.zhimg.com/4cefc77e2e9e82f1f225d2e96aaa707c_b.jpg)
 
 什么按需加载、提取出common什么的就不提了，需要知道按需加载不是适合于所有的场景。
@@ -116,7 +115,7 @@ module: {
 },
 ```
 ## 10、拷贝静态文件
-把指定文件夹xia的文件复制到指定的目录
+把指定文件夹下的文件复制到指定的目录
 
 ```
 var CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -156,7 +155,6 @@ plugins:
 		id: 'babelJs' ,
 		threads: 4
 	}),
-
 ```
 
 ## 13、设置react-optimize (针对React [相关链接](https://github.com/thejameskyle/babel-react-optimize))
