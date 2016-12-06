@@ -210,6 +210,22 @@ if (process.env.NODE_ENV === 'production') {
     );
 }
 ```
+## 18、Webpack 的静态资源持久缓存(服务端支持资源加版本号的就不用考虑使用这个)
+
+使用 webpack 开启静态资源的持久缓存：
+
+1. 使用 [chunkhash] 为每个文件增加一个内容相关的缓存清道夫；
+
+2. 使用编译统计在 HTML 中获取资源时取得文件名；
+
+3. 生成 JSON 格式的模块清单文件，并在 HTML 页面加载资源之前内联进去；
+
+4. 保证包含启动代码的入口块不会对于同样的依赖生成不同的哈希值；
+
+5. 开始收益！
+
+[来不及解释了，还是直接给链接吧，点我](http://www.zcfy.cc/article/long-term-caching-of-static-assets-with-webpack-1204.html)
+
 ---
 
 ## 参考链接
