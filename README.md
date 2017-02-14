@@ -1,4 +1,4 @@
-# 关于webpack2的优化
+# 关于webpack2的优化([公司项目webpack迁移到webpack2的记录](https://github.com/fanjunzhi/webpack-optimization/blob/master/webpack-to-webpack2.md))
 ## 1、配置babel让它在编译转化es6代码时不把import export转换为cmd的module.export
 ```
 ...
