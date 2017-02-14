@@ -40,10 +40,12 @@ export const b = "B_VAL_ES6";
 lib_commonjs.js
 exports.a = "A_VAL_COMMONJS";
 exports.b = "B_VAL_COMMONJS";
-
+```
 build production result:
 
-```
+![build-production-result.png](https://github.com/fanjunzhi/webpack-optimization/blob/master/build-production-result.png)
+
+1、2、3的相关知识链接 [Why Webpack 2's Tree Shaking is not as effective as you think](https://advancedweb.hu/2017/02/07/treeshaking/?utm_source=javascriptweekly&utm_medium=email)
 
 # webpack优化之路
 开发了几个月的webpack构建的项目，总要留(流)下点什么
