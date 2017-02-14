@@ -1,3 +1,50 @@
+# 关于webpack2的优化
+## 1、配置babel让它在编译转化es6代码时不把import export转换为cmd的module.export
+```
+...
+	loader: 'babel-loader',
+	options: {
+		presets: [['es2015', {modules: false}]]
+	}
+...
+```
+## 2、import尽量具体到某个模块
+```
+使用
+import map from "lodash-es/map";
+而不是
+import {map} from "lodash-es";
+```
+## 3、用export const a代替exports.a
+```
+使用
+export const a = "A_VAL_ES6";
+export const b = "B_VAL_ES6";
+代替
+exports.a = "A_VAL_COMMONJS";
+exports.b = "B_VAL_COMMONJS";
+```
+```
+entry.js
+
+import {a as a_es6, b as b_es6} from "./lib.js";
+import {a as a_commonjs, b as b_commonjs} from "./lib_commonjs.js";
+
+console.log(`Hello world: ${a_es6}`);
+console.log(`Hello world: ${a_commonjs}`);
+
+lib.js
+export const a = "A_VAL_ES6";
+export const b = "B_VAL_ES6";
+
+lib_commonjs.js
+exports.a = "A_VAL_COMMONJS";
+exports.b = "B_VAL_COMMONJS";
+
+build production result:
+
+```
+
 # webpack优化之路
 开发了几个月的webpack构建的项目，总要留(流)下点什么
 
