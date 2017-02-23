@@ -2,7 +2,15 @@
 ## 1、babel -> babel-loader
 ## 2、不支持OccurenceOrderPlugin DedupePlugin
 ## 3、resolve，resolveLoader中不支持modulesDirectories
-## 4、resolve中没root
+## 4、resolve中没root，改到resolve.module中了
+
+```
+resolve: {
+    modules: [path.resolve(__dirname, "src"), "node_modules"],
+    alias,
+    extensions: ['.js', '.jsx'],
+},
+```
 ## 5、resolve extensions中不允许出现’’
 ## 6、Error: Chunk.entry was removed. Use hasRuntime()
 解决方案：
