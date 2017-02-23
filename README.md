@@ -1,21 +1,20 @@
 # 关于webpack2的优化([公司项目webpack迁移到webpack2的记录](https://github.com/fanjunzhi/webpack-optimization/blob/master/webpack-to-webpack2.md))
 ## 1、配置babel让它在编译转化es6代码时不把import export转换为cmd的module.export
 ```
-...
-	loader: 'babel-loader',
-	options: {
-		presets: [['es2015', {modules: false}]]
-	}
-...
+loader: 'babel-loader',
+options: {
+	presets: [['es2015', {modules: false}]]
+}
 ```
-## 2、import尽量具体到某个模块
+## 2、移除plugins中的add-module-exports
+## 3、import尽量具体到某个模块
 ```
 使用
 import map from "lodash-es/map";
 而不是
 import {map} from "lodash-es";
 ```
-## 3、用export const a代替exports.a
+## 4、用export const a代替exports.a
 ```
 使用
 export const a = "A_VAL_ES6";
@@ -46,6 +45,42 @@ build production result:
 ![build-production-result.png](https://github.com/fanjunzhi/webpack-optimization/blob/master/build-production-result.png)
 
 1、2、3的相关知识链接 [Why Webpack 2's Tree Shaking is not as effective as you think](https://advancedweb.hu/2017/02/07/treeshaking/?utm_source=javascriptweekly&utm_medium=email)
+
+## 5、使用[webpack-uglify-parallel](https://github.com/tradingview/webpack-uglify-parallel)代替webpack自带的UglifyJsPlugin（多核压缩代码，提升n（发布机的核数 － 1）压缩速度）-重点推荐
+
+```
+webpackConfig.plugins.some(function(plugin, i) {
+        if (plugin instanceof webpack.optimize.UglifyJsPlugin) {
+            webpackConfig.plugins.splice(i, 1);
+            return true;
+        }
+    });
+    
+    const os = require('os');
+
+    const options = {
+        workers: os.cpus().length,
+        compress: {
+            warnings: true,
+            drop_console: true,
+            pure_funcs: ['console.log'],
+        },
+        //mangle: {
+        //    except: ['$super', '$', 'exports', 'require']
+        //},
+        mangle: false,
+        output: {
+            comments: false,
+            ascii_only: false,
+        },
+        sourceMap: false,
+    };
+
+    const UglifyJsParallelPlugin = require('webpack-uglify-parallel');
+    webpackConfig.plugins.push(
+        new UglifyJsParallelPlugin(options)
+    );
+```
 
 # webpack优化之路
 开发了几个月的webpack构建的项目，总要留(流)下点什么
